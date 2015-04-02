@@ -6,5 +6,6 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-	this.resource('miniapps', { path: '/'});
+  this.route('drones');
+  this.route('metronome');
 });

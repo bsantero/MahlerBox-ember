@@ -1,17 +1,405 @@
-.bg-red {
-	background-color: rgb(180,70,250);
+html, body {
+  height: 100%;
 }
 
-.bg-red-lt {
-	background-color: rgb(127,0,0);
+body {
+  margin:0;
+  padding:0; 
+  background-color: #5E345E !important;
+  color: white !important;
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 
-.site-title {
-	/*font-size: ;*/
-	color: white;
-	margin-left: 1rem;
+button {
+  color: white !important;
 }
 
-.border {
-	border: 1px solid black;
+button:hover,
+button:active {
+  outline: none !important;
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
+button.ctlButton {
+  width: 20vw;
+  margin: 0 1rem;
+  padding: 1rem;
+  /*font-size: 2rem;*/
+  background-color: #754B75 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+button.ctlButton:hover,
+button.ctlButton:focus {
+  background-color: #3B0F3B !important;
+}
+
+.blinkyOn {
+  opacity: 1 !important;
+}
+
+.btn-group {
+  top: 0 !important;
+}
+
+.btn-group button.menuBtn {
+  background-color: #754B75 !important;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.btn-group button.menuBtn.clicked {
+  background-color: #3B0F3B !important;
+}
+
+.btn-group button.menuBtn:first-child.clicked {
+  border-bottom-left-radius: 0;
+}
+
+.btn-group button.menuBtn:last-child.clicked {
+  border-bottom-right-radius: 0;
+}
+
+.credit a {
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.credit a:hover, .credit a:focus {
+  font-size: 2rem;
+  color: white !important;
+}
+
+.container {
+  width: 100%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.fltleft {
+  float: left;
+}
+
+.fltright {
+  float: right;
+}
+
+.glyphicon:hover {
+  cursor: pointer;
+}
+
+.metroBlinky {
+  /*padding-left: 8px;*/
+}
+
+.hide {
+  display: none;
+}
+
+.menu {
+  display: none;
+  padding: 0 1rem;
+  position: absolute;
+  top: 5.5rem;
+  right: 1.5rem;
+  border-radius: 3px 0 4px 4px;
+  background-color: #3B0F3B !important;
+  text-align: right;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.menu .keyButton {
+  /*border: 1px solid white;*/
+  background-color: #754B75;
+  border-radius: 3px;
+  padding: 4px;
+  margin: auto 2px; 
+}
+
+.infoMenu {
+}
+
+.settingsMenu {
+  padding-bottom: 1rem;
+}
+
+.settingsMenu div {
+  margin-bottom: 1rem;
+}
+
+.settingsMenu div:last-child {
+  margin-bottom: 0;
+}
+
+.settingsMenu div .pull-left{
+  margin-right: 2rem;
+}
+
+
+.selector {
+  font-size: 2rem;
+  border: 0;
+  background-color: #754B75;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#siteTitles {
+  font-family: sans-serif;
+  text-align: left;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+#pageTitle,
+#pageSubtitle {
+  float: left;
+  display: inline-block;
+  margin: 0;
+}
+
+#pageTitle {
+  font-size: 3rem;
+  margin: 0 .5rem -1.26rem 0; 
+}
+
+#pageSubtitle {
+  font-size: 1.5rem;
+  margin-top: 1.26rem;
+}
+
+#navbar {
+  text-align: center;
+}
+
+#navbar span {
+  width: 25vw;
+  display: inline-block;
+  font-size: 3rem;
+  color: rgb(160,160,160);
+}
+
+#navbar span.currentInterfaceHeading {
+  color: white;
+}
+
+#navbar span:nth-child(2) {
+  /*border-left: 3px solid #754B75;*/
+  /*border-right: 3px solid #754B75;*/
+}
+
+#navbar span:last-child {
+  border-right: none;
+}
+
+/*#metroUi,
+#metroUi,
+#quencherUi {
+  display: none;
+}*/
+
+#droneUi,
+#metroUi,
+#quencherUi {
+  text-align: center;
+}
+
+#droneUp,
+#droneDown {
+  height: 15vh;
+}
+
+#droneUp h1,
+#droneDown h1 {
+  margin: 0;
+  padding: 0;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+#droneUp:hover,
+#droneDown:hover {
+  cursor: pointer;
+}
+
+#droneDisplay {
+  height: 30vh;
+  border-top: 3px solid #754B75;
+  border-bottom: 3px solid #754B75;
+}
+
+#droneDisplay span {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 8rem;
+  text-align: center;
+}
+
+#droneDisplay span.octave {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+#droneDisplay span.frequency {
+  font-size: 5rem;
+}
+
+#droneDisplay div.controls {
+  margin-bottom: 2rem;
+}
+
+#droneStop {
+  display: none;
+}
+
+#metroUi div.blinky {
+  width: 5vw;
+  height: 5vw;
+  text-align: center;
+  background-color: white;
+  -wekbit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  margin: auto;
+  opacity: 0;
+}
+
+#metroUi .tempoHeader {
+  margin: 0;
+}
+
+#metroUi .tempoChange button {
+  width: 5rem;
+}
+
+#metroUi .tempoChange button:nth-child(2) {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#metroUi .controls button {
+  width: 100%;
+  margin: 0;
+}
+
+
+#metroDisplay {
+  padding: 0;
+}
+
+#metroTempoKnob {
+  /*height: 15vh;*/
+}
+
+#metroStop {
+  display: none;
+}
+
+#footer p {
+  margin: 1rem;
+}
+
+@media (min-width: 768px) {
+
+  #droneDisplay,
+  #droneUp,
+  #droneDown {
+    height: 70vh;
+  }
+
+  #droneDisplay {
+    border-top: none;
+    border-bottom: none;
+    border-left: 3px solid #754B75;
+    border-right: 3px solid #754B75;
+  }
+
+  #droneDisplay button {
+    margin: 1rem;
+  }
+
+  #footer {
+    clear: both;
+  }
+}
+
+@media (min-width: 500px) and (orientation:landscape) {
+
+  #droneDisplay,
+  #droneUp,
+  #droneDown {
+    height: 70vh;
+  }
+
+  .col-sm-4 {
+    float: left;
+    width: 33.33333333%;
+  }
+  
+  #droneDisplay {
+    border-top: none;
+    border-bottom: none;
+    border-left: 3px solid #754B75;
+    border-right: 3px solid #754B75;
+  }
+  
+  #droneDisplay button {
+    margin: .2rem;
+  }
+
+}
+
+@media (max-width: 768px){
+  body {
+    font-size: 10px;
+  }
+  
+  #pageSubtitle {
+    /*margin: 0;*/
+  }
+
+  #navbar span {
+    width: 32vw;
+    font-size: 2rem;
+  }
+
+  #droneDisplay span {
+    font-size: 5rem;
+  }
+
+  #droneDisplay span.octave,
+  #droneDisplay span.frequency {
+    font-size: 3rem;
+  }
+
+  #droneDisplay button {
+    margin: 1rem;
+  }
+
 }
