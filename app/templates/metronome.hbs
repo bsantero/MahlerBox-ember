@@ -1,0 +1,60 @@
+<div id="metroUi" class="row">
+  <div id="metroMenus" class="menuContainer">
+    <div id="metroInfoMenu" class="menu infoMenu">
+      <h3>metro Info</h3>
+      <p>Nothing yet!</p>
+    </div>
+    <div id="metroSettingsMenu" class="menu settingsMenu">
+      <h3>metro Settings</h3>
+      <div id="metroVolControl">
+        <p class="pull-left">Volume</p>
+        <span class="">
+          <span id="metroVolMinus" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"volChange", "dir":"down"}'></span>
+          <span id="metroVolDisplay">75%</span>
+          <span id="metroVolPlus" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"volChange", "dir":"up"}'></span>
+        </span>
+      </div>
+      <div id="metroBeats">
+        <p class="pull-left">Beats</p>
+        <span class="">
+          <span id="metroBeatsMinus" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"beatsChange", "dir":"down"}'></span>
+          <span id="metroBeatsDisplay">2</span>
+          <span id="metroBeatsPlus" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"beatsChange", "dir":"up"}'></span>
+        </span>
+      </div>
+      <div id="metroMeterSelect">
+        <p class="pull-left">Meter</p>
+          <select id="meterSelector" class="selector">
+            <option selected="selected">Duple</option>
+            <option>Triple</option>
+          </select>
+      </div>
+      <div id="metroSubSelect">
+        <p class="pull-left">Subdivision</p>
+          <select id="subdivisionSelector" class="selector">
+            <option>Half</option>
+            <option>Quarter</option>
+            <option selected="selected">Eighth</option>
+            <option>Sixteenth</option>
+          </select>
+      </div>
+    </div>
+  </div>
+  <div id="metroDown" class="metro tempoChange col-xs-3">
+    <h3 class="tempoHeader">Down</h3>
+    <button id="metroMinusOne" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"-1"}'>-1</button>
+    <button id="metroMinusTen" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"-10"}'>-10</button>
+  </div>
+  <div class="controls col-xs-6">
+    <div id="metroTempoKnob" class="tempo-dial">
+      <h1 class="tempoHeader">Tempo</h1><input class="knob option input" value="120" data-linecap=round>
+    </div>
+    <button id="metroPlay" class="ctlButton" data-dest='{"ui":"metro", "action":"Play"}'>play</button>
+    <button id="metroStop" class="ctlButton" data-dest='{"ui":"metro", "action":"Stop"}'>stop</button>
+  </div>
+  <div id="metroUp" class="metro tempoChange col-xs-3">
+    <h3 class="tempoHeader">Up</h3>
+    <button id="metroPlusOne" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"1"}'>+1</button>
+    <button id="metroPlusTen" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"10"}'>+10</button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div id="droneUi" class="row">
+  <div id="droneMenus" class="menuContainer">
+    <div id="droneInfoMenu" class="menu infoMenu">
+      <h3>Drone Keyboard Shortcuts:</h3>
+      <p><span class="pull-left">Start/Stop:</span><span class="keyButton">Spacebar</span></p>
+      <p><span class="pull-left">Reset:</span><span class="keyButton">Shift</span></p>
+      <p><span class="pull-left">Volume:</span><span class="keyButton">-</span> | <span class="keyButton">+</span> keys</p>
+      <p><span class="pull-left">Pitch:</span><span class="keyButton">Arrow DOWN</span> | <span class="keyButton"> Arrow UP </span></p>
+      <p><span class="pull-left">Calibration:</span><span class="keyButton">Arrow LEFT</span> | <span class="keyButton">Arrow RIGHT</span></p>
+    </div>
+    <div id="droneSettingsMenu" class="menu settingsMenu">
+      <h3>Drone Settings</h3>
+      <div id="droneVolControl">
+        <span class="pull-left">Volume:</span>
+        <span id="droneVolMinus" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"drone", "action":"volChange", "dir":"down"}'></span>
+        <span id="droneVolDisplay">75%</span>
+        <span id="droneVolPlus" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"drone", "action":"volChange", "dir":"up"}'></span>
+      </div>
+      <div id="pitchCalibrate">
+        <span class="pull-left">Calibration:</span>
+        <span id="calibrateDown" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"drone", "action":"calibrationChange"}'></span>
+        <span id="calibrateDisplay">440Hz</span>
+        <span id="calibrateUp" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"drone", "action":"calibrationChange"}'></span>
+      </div>
+    </div>
+  </div>
+  <div id="droneUp" class="changePitch buttonDiv up col-sm-4 col-sm-push-8" data-direction="up">
+    <h1 class="vertical-center">Pitch Up</h1>
+  </div>
+  <div id="droneDisplay" class="nopad col-sm-4">
+    <div class="vertical-center">
+      <span class="display pitch">A</span>
+      <span class="display octave">4</span>
+      <span class="display frequency">440Hz</span>
+      <div class="controls">
+        <button id="dronePlay" class="ctlButton" data-dest='{"ui":"drone", "action":"Play"}'>play</button>
+        <button id="droneStop" class="ctlButton" data-dest='{"ui":"drone", "action":"Stop"}'>stop</button>
+        <button id="droneDefault" class="ctlButton" data-dest='{"ui":"drone", "action":"Default"}'>default</button>
+        <button id="droneReset" class="ctlButton" data-dest='{"ui":"drone", "action":"Reset"}'>reset</button>
+      </div>
+    </div>
+  </div>
+  <div id="droneDown" class="changePitch buttonDiv down col-sm-4 col-sm-pull-8" data-direction="down">
+    <h1 class="vertical-center">Pitch Down</h1>
+  </div>
+</div>
+{{outlet}}
