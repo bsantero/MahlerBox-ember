@@ -1,9 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	setupController: function(controller){
+		controller.set('isPlaying', false);
+		controller.set('notes', []);
+		controller.set('currentPitchName', 'A');
+		controller.set('currentPitchOctave', 4);
+		controller.set('currentPitchFrequency', 440);
+		controller.set('noteRangeMin', 'A1');
+		controller.set('noteRangeMin', 'A6');
+	},
 	actions: {
 		play: function() {
-			alert("Play pressed!");
+			alert(currentPitchName);
 		},
 		stop: function() {
 			alert("Stop pressed!");
