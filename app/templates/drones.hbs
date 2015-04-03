@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="div-button settings-change control pitch pitch-up col-sm-4 col-sm-push-8">
+  <div {{action 'changePitchUp'}} class="div-button settings-change control pitch pitch-up col-sm-4 col-sm-push-8">
     <h1 class="vertical-center header">Pitch Up</h1>
   </div>
   <div class="display nopad col-sm-4">
@@ -33,14 +33,14 @@
       <span class="octave">4</span>
       <span class="frequency">440Hz</span>
       <div class="controls">
-        <button class="transport play control-button">play</button>
-        <button class="transport stop control-button">stop</button>
-        <button class="control-button">default</button>
-        <button class="control-button">reset</button>
+        <button {{action 'play'}} class="transport play control-button">play</button>
+        <button {{action 'stop'}} class="transport stop control-button">stop</button>
+        <button {{action 'setDefault'}} class="control-button">default</button>
+        <button {{action 'resetToDefault'}} class="control-button">reset</button>
       </div>
     </div>
   </div>
-  <div class="div-button settings-change control pitch pitch-down col-sm-4 col-sm-pull-8">
+  <div {{action 'changePitchDown'}} class="div-button settings-change control pitch pitch-down col-sm-4 col-sm-pull-8">
     <h1 class="vertical-center header">Pitch Down</h1>
   </div>
 </div>

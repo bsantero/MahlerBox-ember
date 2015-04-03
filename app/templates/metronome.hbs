@@ -42,19 +42,19 @@
   </div>
   <div class="tempo control col-xs-3">
     <h3 class="header">Down</h3>
-    <button class="control-button change-up-1">-1</button>
-    <button class="control-button change-up-10">-10</button>
+    <button {{action 'changeTempo' -1}}class="control-button change-up-1">-1</button>
+    <button {{action 'changeTempo' -10}}class="control-button change-up-10">-10</button>
   </div>
   <div class="tempo control col-xs-6">
     <div class="knob tempo-dial">
       <h1 class="header">Tempo</h1><input class="knob option input" value="120" data-linecap=round>
     </div>
-    <button class="transport play control-button">play</button>
-    <button class="transport stop control-button">stop</button>
+    <button {{action 'play'}} class="transport play control-button">play</button>
+    <button {{action 'stop'}} class="transport stop control-button">stop</button>
   </div>
   <div class="tempo control col-xs-3">
     <h3 class="header">Up</h3>
-    <button class="control-button change-up-1">+1</button>
-    <button class="control-button change-up-10">+10</button>
+    <button {{action 'changeTempo' 1}} class="control-button change-up-1">+1</button>
+    <button {{action 'changeTempo' 10}} class="control-button change-up-10">+10</button>
   </div>
 </div>
