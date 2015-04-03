@@ -29,12 +29,17 @@
   </div>
   <div class="display nopad col-sm-4">
     <div class="vertical-center">
-      <span class="pitch">A</span>
-      <span class="octave">4</span>
-      <span class="frequency">440Hz</span>
+    {{log currentPitch}}
+    {{log model}}
+      <span class="pitch"></span>
+      {{!-- <span class="octave">4</span>
+      <span class="frequency">440Hz</span> --}}
       <div class="controls">
-        <button {{action 'play'}} class="transport play control-button">play</button>
-        <button {{action 'stop'}} class="transport stop control-button">stop</button>
+        {{#if isPlaying }}
+          <button {{action 'stop'}} class="transport stop control-button">stop</button>
+        {{else}}
+          <button {{action 'play'}} class="transport play control-button">play</button>
+        {{/if}}
         <button {{action 'setDefault'}} class="control-button">default</button>
         <button {{action 'resetToDefault'}} class="control-button">reset</button>
       </div>
