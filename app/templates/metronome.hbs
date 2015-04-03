@@ -1,37 +1,37 @@
-<div id="metroUi" class="row">
-  <div id="metroMenus" class="menuContainer">
-    <div id="metroInfoMenu" class="menu infoMenu">
+<div class="metro interface row">
+  <div class="menu-container">
+    <div class="menu info">
       <h3>metro Info</h3>
       <p>Nothing yet!</p>
     </div>
-    <div id="metroSettingsMenu" class="menu settingsMenu">
+    <div class="menu settings">
       <h3>metro Settings</h3>
-      <div id="metroVolControl">
-        <p class="pull-left">Volume</p>
+      <div class="volume control">
+        <p class="pull-left header">Volume</p>
         <span class="">
-          <span id="metroVolMinus" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"volChange", "dir":"down"}'></span>
-          <span id="metroVolDisplay">75%</span>
-          <span id="metroVolPlus" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"volChange", "dir":"up"}'></span>
+          <span class="fa fa-minus settings-change keyButton change-down" aria-hidden="true"></span>
+          <span class="display">75%</span>
+          <span class="fa fa-plus settings-change keyButton change-up" aria-hidden="true"></span>
         </span>
       </div>
-      <div id="metroBeats">
-        <p class="pull-left">Beats</p>
-        <span class="">
-          <span id="metroBeatsMinus" class="glyphicon glyphicon-minus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"beatsChange", "dir":"down"}'></span>
-          <span id="metroBeatsDisplay">2</span>
-          <span id="metroBeatsPlus" class="glyphicon glyphicon-plus settingsChange keyButton" aria-hidden="true" data-dest='{"ui":"metro", "action":"beatsChange", "dir":"up"}'></span>
+      <div class="beats control">
+        <p class="pull-left header">Beats</p>
+        <span>
+          <span class="fa fa-minus settings-change keyButton change-down" aria-hidden="true"></span>
+          <span class="display">2</span>
+          <span class="fa fa-plus settings-change keyButton change-up" aria-hidden="true"></span>
         </span>
       </div>
-      <div id="metroMeterSelect">
-        <p class="pull-left">Meter</p>
-          <select id="meterSelector" class="selector">
+      <div class="meter control">
+        <p class="pull-left header">Meter</p>
+          <select class="selector">
             <option selected="selected">Duple</option>
             <option>Triple</option>
           </select>
       </div>
-      <div id="metroSubSelect">
-        <p class="pull-left">Subdivision</p>
-          <select id="subdivisionSelector" class="selector">
+      <div class="subdivision control">
+        <p class="pull-left header">Subdivision</p>
+          <select class="selector">
             <option>Half</option>
             <option>Quarter</option>
             <option selected="selected">Eighth</option>
@@ -40,21 +40,21 @@
       </div>
     </div>
   </div>
-  <div id="metroDown" class="metro tempoChange col-xs-3">
-    <h3 class="tempoHeader">Down</h3>
-    <button id="metroMinusOne" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"-1"}'>-1</button>
-    <button id="metroMinusTen" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"-10"}'>-10</button>
+  <div class="tempo control col-xs-3">
+    <h3 class="header">Down</h3>
+    <button class="control-button change-up-1">-1</button>
+    <button class="control-button change-up-10">-10</button>
   </div>
-  <div class="controls col-xs-6">
-    <div id="metroTempoKnob" class="tempo-dial">
-      <h1 class="tempoHeader">Tempo</h1><input class="knob option input" value="120" data-linecap=round>
+  <div class="tempo control col-xs-6">
+    <div class="knob tempo-dial">
+      <h1 class="header">Tempo</h1><input class="knob option input" value="120" data-linecap=round>
     </div>
-    <button id="metroPlay" class="ctlButton" data-dest='{"ui":"metro", "action":"Play"}'>play</button>
-    <button id="metroStop" class="ctlButton" data-dest='{"ui":"metro", "action":"Stop"}'>stop</button>
+    <button class="transport play control-button">play</button>
+    <button class="transport stop control-button">stop</button>
   </div>
-  <div id="metroUp" class="metro tempoChange col-xs-3">
-    <h3 class="tempoHeader">Up</h3>
-    <button id="metroPlusOne" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"1"}'>+1</button>
-    <button id="metroPlusTen" class="ctlButton" data-dest='{"ui":"metro", "action":"tempoChange", "amount":"10"}'>+10</button>
+  <div class="tempo control col-xs-3">
+    <h3 class="header">Up</h3>
+    <button class="control-button change-up-1">+1</button>
+    <button class="control-button change-up-10">+10</button>
   </div>
 </div>
