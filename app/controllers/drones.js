@@ -11,13 +11,23 @@ export default Ember.Controller.extend({
 	}.property('arrayPos', 'model'),
 	controlDrone: function() {
 		var status = this.get('isPlaying');
-		if (!status) { // fix vars
-			var context = this.get('audioContext');
-		  this.set('drone', context.createOscillator()); // Create bass guitar
-		  this.set('gainNode', context.createGain()); // Create boost pedal
-		  this.get('drone').connect(this.get('gainNode')); // Connect bass guitar to boost pedal
-		  this.get('gainNode').connect(context.destination); // Connect boost pedal to amplifier
-		  this.get('gainNode').gain.value = this.get('volume')/24; // Set boost pedal to 30 percent volume
+		if (status) {
+			let context = this.get('audioContext');
+			let drone = context.createOscillator();
+			let gainNode = context.createGain();
+			drone.connect(gainNode);
+			gainNode.connect(context.destination);
+			gainNode.gain.value = this.get('volume')/24;
+			this.set('drone', drone);
+			this.set('gainNode', gainNode); // Set controller property to local var
+			drone.start();
+		} else {
+			let drone = this.get('drone');
+			if (drone) {
+				drone.stop();
+				this.set('drone', null);
+				this.set('gainNode', null);
+			}
 		}
 	}.observes('isPlaying'),
 });
