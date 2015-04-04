@@ -21,6 +21,7 @@ export default Ember.Controller.extend({
 			let gainNode = context.createGain();
 			drone.connect(gainNode);
 			gainNode.connect(context.destination);
+			this.setFrequency(drone);
 			gainNode.gain.value = this.get('volume')/24;
 			this.set('drone', drone);
 			this.set('gainNode', gainNode); // Set controller property to local var
@@ -34,12 +35,15 @@ export default Ember.Controller.extend({
 			}
 		}
 	}.observes('isPlaying'),
-	changeFrequency: function() {
-		let drone = this.get('drone');
+	setFrequency: function(drone) {
 		if (drone) {
 			let frequency = this.get('currentPitch.frequency');
 			drone.frequency.value = frequency;
 		}
+	},
+	changeFrequency: function() {
+		let drone = this.get('drone');
+		this.setFrequency(drone);
 	}.observes('currentPitch.frequency'),
 	actions: {
 		changeDefaultPos: function() {
