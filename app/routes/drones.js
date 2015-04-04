@@ -1,12 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	setupController: function(controller, model){
-		this._super(controller, model);
-		controller.set('isPlaying', false);
-		controller.set('arrayPos', 36);
-		controller.set('volume', 18);
-	},
 	model: function() {
 		return [
 			{ name: 'A', octave: 1, frequency: 55.0 },
@@ -78,12 +72,6 @@ export default Ember.Route.extend({
 		},
 		stop: function() {
 			this.controller.set('isPlaying', false);
-		},
-		setDefault: function() {
-			alert("Default pressed!");
-		},
-		resetToDefault: function() {
-			alert(this.controller.isPlaying);
 		},
 		changePitchUp: function() {
 			var newPos = this.controller.get('arrayPos') + 1;

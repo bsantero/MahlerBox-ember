@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	isPlaying: false,
+	arrayPos: 36,
+	defaultArrayPos: 36,
+	volume: 18,
 	audioContext: function() {
 		var Context = window.AudioContext || window.webkitAudioContext;
  		return new Context();
@@ -31,11 +35,18 @@ export default Ember.Controller.extend({
 		}
 	}.observes('isPlaying'),
 	changeFrequency: function() {
-		console.log("Iside changeFreq");
 		let drone = this.get('drone');
 		if (drone) {
 			let frequency = this.get('currentPitch.frequency');
 			drone.frequency.value = frequency;
 		}
-	}.observes('currentPitch.frequency')
+	}.observes('currentPitch.frequency'),
+	actions: {
+		changeDefaultPos: function() {
+			this.set('defaultArrayPos', this.get('arrayPos'));
+		},
+		resetToDefault: function() {
+			this.set('arrayPos', this.get('defaultArrayPos'));
+		}
+	}
 });
