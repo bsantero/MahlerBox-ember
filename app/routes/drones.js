@@ -89,14 +89,14 @@ export default Ember.Route.extend({
 		},
 		changeVolumeUp: function() {
 			let volume = this.controller.get('volume');
-			if (volume < 24) {
+			if (volume < 25) {
 				this.controller.set('volume', volume + 1);
 			}
 		},
 		changeVolumeDown: function() {
 			let volume = this.controller.get('volume');
 			if (volume > 0) {
-				this.controller.set('volume', this.controller.get('volume')-1);
+				this.controller.set('volume', volume - 1);
 			}
 		},
 	}

@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 	isPlaying: false,
 	arrayPos: 36,
 	defaultArrayPos: 36,
-	volume: 18,
+	volume: 20,
 	audioContext: function() {
 		var Context = window.AudioContext || window.webkitAudioContext;
  		return new Context();
@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
 		}
 	},
 	setVolume: function(gainNode) {
-		var volume = this.get('volume')/24;
+		var volume = this.get('volume')/25;
 		if (gainNode) {
 			gainNode.gain.value = volume;
 		}
