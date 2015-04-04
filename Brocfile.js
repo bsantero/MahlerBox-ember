@@ -27,7 +27,7 @@ app.import( 'bower_components/fontawesome/css/font-awesome.min.css');
 
 var extraAssets = pickFiles( 'bower_components/fontawesome/fonts', {
     srcDir  : '/',
-    files   : [ 'fontawesome-webfont.woff' ],
+    files   : [ 'fontawesome-webfont.woff2' ],
     destDir : '/fonts'
 })
 
