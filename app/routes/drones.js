@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 		this._super(controller, model);
 		controller.set('isPlaying', false);
 		controller.set('arrayPos', 36);
-		controller.set('audioContext', new (window.AudioContext || window.webkitAudioContext)());
+		controller.set('volume', 18);
 	},
 	model: function() {
 		return [

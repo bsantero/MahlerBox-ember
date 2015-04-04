@@ -12,12 +12,12 @@
     </div>
     <div class="collapse navbar-collapse">
 	    <ul class="nav navbar-nav">
-		    {{#linkTo "drones" tagName="li"}}
-			    <a {{bindAttr href="drones.href"}}>Drones</a>
-				{{/linkTo}}
-		    {{#linkTo "metronome" tagName="li"}}
-			    <a {{bindAttr href="metronome.href"}}>Metronome</a>
-				{{/linkTo}}
+		    {{#link-to "drones" tagName="li"}}
+			    {{#link-to 'drones'}}Drones{{/link-to}}
+				{{/link-to}}
+		    {{#link-to "metronome" tagName="li"}}
+			    {{#link-to 'metronome'}}Metronome{{/link-to}}
+				{{/link-to}}
 	  	</ul>
 	  	<ul class="nav navbar-nav navbar-right menu-toggles">
         <li><i class="fa fa-info" /></li>
@@ -26,7 +26,7 @@
 	  </div>{{!-- /.navbar-collapse --}}
   </div>
 </nav>
-  
+
 <div id="interfaces">
 	{{outlet}}
 </div>
