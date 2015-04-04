@@ -87,7 +87,6 @@ export default Ember.Route.extend({
 		},
 		changePitchUp: function() {
 			var newPos = this.controller.get('arrayPos') + 1;
-			console.log('newPos is', newPos);
 			this.controller.set('arrayPos', newPos);
 		},
 		changePitchDown: function() {

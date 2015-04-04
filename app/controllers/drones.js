@@ -30,4 +30,12 @@ export default Ember.Controller.extend({
 			}
 		}
 	}.observes('isPlaying'),
+	changeFrequency: function() {
+		console.log("Iside changeFreq");
+		let drone = this.get('drone');
+		if (drone) {
+			let frequency = this.get('currentPitch.frequency');
+			drone.frequency.value = frequency;
+		}
+	}.observes('currentPitch.frequency')
 });
