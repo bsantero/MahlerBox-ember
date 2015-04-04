@@ -29,11 +29,15 @@
   </div>
   <div class="display nopad col-sm-4">
     <div class="vertical-center">
-    {{log currentPitch}}
-    {{log model}}
-      <span class="pitch"></span>
-      {{!-- <span class="octave">4</span>
-      <span class="frequency">440Hz</span> --}}
+      <span class="pitch">
+        {{currentPitch.name}}
+      </span>
+      <span class="octave">
+        {{currentPitch.octave}}
+      </span>
+      <span class="frequency">
+        {{currentPitch.frequency}}
+      </span>
       <div class="controls">
         {{#if isPlaying }}
           <button {{action 'stop'}} class="transport stop control-button">stop</button>
@@ -47,6 +51,7 @@
   </div>
   <div {{action 'changePitchDown'}} class="div-button settings-change control pitch pitch-down col-sm-4 col-sm-pull-8">
     <h1 class="vertical-center header">Pitch Down</h1>
+    {{arrayPos}}
   </div>
 </div>
 {{outlet}}

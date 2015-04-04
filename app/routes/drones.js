@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	setupController: function(controller){
+	setupController: function(controller, model){
+		this._super(controller, model);
 		controller.set('isPlaying', false);
 		controller.set('arrayPos', 36);
+		controller.set('audioContext', new (window.AudioContext || window.webkitAudioContext)());
 	},
 	model: function() {
 		return [
@@ -84,12 +86,13 @@ export default Ember.Route.extend({
 			alert(this.controller.isPlaying);
 		},
 		changePitchUp: function() {
-			// var newPos = this.get('arrayPos') + 1;
-			// this.controller.set('arrayPos', newPos;
+			var newPos = this.controller.get('arrayPos') + 1;
+			console.log('newPos is', newPos);
+			this.controller.set('arrayPos', newPos);
 		},
 		changePitchDown: function() {
-			// var newPos = this.get('arrayPos') - 1;
-			// this.controller.set('arrayPos', newPos;
+			var newPos = this.controller.get('arrayPos') - 1;
+			this.controller.set('arrayPos', newPos);
 		}
 	}
 });
