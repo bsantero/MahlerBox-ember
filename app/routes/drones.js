@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	setupController: function(controller, model){
+		this._super(controller, model);
+		this.controllerFor('application').set('dronesActive', true);
+		this.controllerFor('application').set('infoMenuOpen', false);
+		this.controllerFor('application').set('settingsMenuOpen', false);
+	},
 	model: function() {
 		return [
 			{ name: 'A', octave: 1, frequency: 55.0 },
@@ -80,6 +86,18 @@ export default Ember.Route.extend({
 		changePitchDown: function() {
 			var newPos = this.controller.get('arrayPos') - 1;
 			this.controller.set('arrayPos', newPos);
-		}
+		},
+		changeVolumeUp: function() {
+			let volume = this.controller.get('volume');
+			if (volume < 24) {
+				this.controller.set('volume', volume + 1);
+			}
+		},
+		changeVolumeDown: function() {
+			let volume = this.controller.get('volume');
+			if (volume > 0) {
+				this.controller.set('volume', this.controller.get('volume')-1);
+			}
+		},
 	}
 });

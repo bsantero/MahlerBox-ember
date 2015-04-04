@@ -20,15 +20,87 @@
 				{{/link-to}}
 	  	</ul>
 	  	<ul class="nav navbar-nav navbar-right menu-toggles">
-        <li><i class="fa fa-info" /></li>
-        <li><i class="fa fa-cogs" /></li>
+        <li><i class="fa fa-info" {{action 'toggleInfoMenu'}} /></li>
+        <li><i class="fa fa-cogs" {{action 'toggleSettingsMenu'}} /></li>
       </ul>
 	  </div>{{!-- /.navbar-collapse --}}
   </div>
 </nav>
 
 <div id="interfaces">
+  <div class="menu-container">
+    {{#if infoMenuOpen}}
+    <div class="menu info">
+      {{#if dronesActive}}
+        <h3>Drone Keyboard Shortcuts:</h3>
+        <p><span class="pull-left">Start/Stop:</span><span class="keyButton">Spacebar</span></p>
+        <p><span class="pull-left">Reset:</span><span class="keyButton">Shift</span></p>
+        <p><span class="pull-left">Volume:</span><span class="keyButton">-</span> | <span class="keyButton">+</span> keys</p>
+        <p><span class="pull-left">Pitch:</span><span class="keyButton">Arrow DOWN</span> | <span class="keyButton"> Arrow UP </span></p>
+        <p><span class="pull-left">Calibration:</span><span class="keyButton">Arrow LEFT</span> | <span class="keyButton">Arrow RIGHT</span></p>
+      {{else}}
+        <h3>metro Info</h3>
+        <p>Nothing yet!</p>
+      {{/if}}
+    </div>
+    {{/if}}
+    {{#if settingsMenuOpen}}
+    <div class="menu settings">
+      {{#if dronesActive}}
+        <h3>Drone Settings</h3>
+        <div class="volume">
+          <span class="pull-left">Volume:</span>
+          <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true" {{action 'changeVolumeDown'}}></span>
+          <span class="display">{{volumeDisplay}}%</span>
+          <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true" {{action 'changeVolumeUp'}}></span>
+        </div>
+        <div class="calibration">
+          <span class="pull-left">Calibration:</span>
+          <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true"></span>
+          <span class="display">440Hz</span>
+          <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true"></span>
+        </div>
+      {{else}}
+        <h3>Metro Settings</h3>
+        <div class="volume control">
+          <p class="pull-left header">Volume</p>
+          <span class="">
+            <span class="fa fa-minus settings-change keyButton change-down" aria-hidden="true"></span>
+            <span class="display">75%</span>
+            <span class="fa fa-plus settings-change keyButton change-up" aria-hidden="true"></span>
+          </span>
+        </div>
+        <div class="beats control">
+          <p class="pull-left header">Beats</p>
+          <span>
+            <span class="fa fa-minus settings-change keyButton change-down" aria-hidden="true"></span>
+            <span class="display">2</span>
+            <span class="fa fa-plus settings-change keyButton change-up" aria-hidden="true"></span>
+          </span>
+        </div>
+        <div class="meter control">
+          <p class="pull-left header">Meter</p>
+            <select class="selector">
+              <option selected="selected">Duple</option>
+              <option>Triple</option>
+            </select>
+        </div>
+        <div class="subdivision control">
+          <p class="pull-left header">Subdivision</p>
+            <select class="selector">
+              <option>Half</option>
+              <option>Quarter</option>
+              <option selected="selected">Eighth</option>
+              <option>Sixteenth</option>
+            </select>
+        </div>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
 	{{outlet}}
+
 </div>
 
 <div id="footer" class="container-fluid">

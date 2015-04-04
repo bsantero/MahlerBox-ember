@@ -1,29 +1,4 @@
 <div class="drone interface row">
-  <div class="menu-container">
-    <div class="menu info">
-      <h3>Drone Keyboard Shortcuts:</h3>
-      <p><span class="pull-left">Start/Stop:</span><span class="keyButton">Spacebar</span></p>
-      <p><span class="pull-left">Reset:</span><span class="keyButton">Shift</span></p>
-      <p><span class="pull-left">Volume:</span><span class="keyButton">-</span> | <span class="keyButton">+</span> keys</p>
-      <p><span class="pull-left">Pitch:</span><span class="keyButton">Arrow DOWN</span> | <span class="keyButton"> Arrow UP </span></p>
-      <p><span class="pull-left">Calibration:</span><span class="keyButton">Arrow LEFT</span> | <span class="keyButton">Arrow RIGHT</span></p>
-    </div>
-    <div class="menu settings">
-      <h3>Drone Settings</h3>
-      <div class="volume">
-        <span class="pull-left">Volume:</span>
-        <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true"></span>
-        <span class="display">75%</span>
-        <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true"></span>
-      </div>
-      <div class="calibration">
-        <span class="pull-left">Calibration:</span>
-        <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true"></span>
-        <span class="display">440Hz</span>
-        <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true"></span>
-      </div>
-    </div>
-  </div>
   <div {{action 'changePitchUp'}} class="div-button settings-change control pitch pitch-up col-sm-4 col-sm-push-8">
     <h1 class="vertical-center header">Pitch Up</h1>
   </div>
@@ -44,7 +19,7 @@
         {{else}}
           <button {{action 'play'}} class="transport play control-button">play</button>
         {{/if}}
-        <button {{action 'changeDefaultPos'}} class="control-button">default</button>
+        <button {{action 'changeDefaultPo'}} class="control-button">default</button>
         <button {{action 'resetToDefault'}} class="control-button">reset</button>
       </div>
     </div>

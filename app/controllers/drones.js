@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	needs: ['application'],
 	isPlaying: false,
 	arrayPos: 36,
 	defaultArrayPos: 36,
@@ -22,7 +23,7 @@ export default Ember.Controller.extend({
 			drone.connect(gainNode);
 			gainNode.connect(context.destination);
 			this.setFrequency(drone);
-			gainNode.gain.value = this.get('volume')/24;
+			this.setVolume(gainNode);
 			this.set('drone', drone);
 			this.set('gainNode', gainNode); // Set controller property to local var
 			drone.start();
@@ -35,22 +36,33 @@ export default Ember.Controller.extend({
 			}
 		}
 	}.observes('isPlaying'),
+	changeFrequency: function() {
+		let drone = this.get('drone');
+		this.setFrequency(drone);
+	}.observes('currentPitch.frequency'),
+	changeVolume: function() {
+		let gainNode = this.get('gainNode');
+		this.setVolume(gainNode);
+	}.observes('volume').on('init'),
 	setFrequency: function(drone) {
 		if (drone) {
 			let frequency = this.get('currentPitch.frequency');
 			drone.frequency.value = frequency;
 		}
 	},
-	changeFrequency: function() {
-		let drone = this.get('drone');
-		this.setFrequency(drone);
-	}.observes('currentPitch.frequency'),
+	setVolume: function(gainNode) {
+		var volume = this.get('volume')/24;
+		if (gainNode) {
+			gainNode.gain.value = volume;
+		}
+		this.get('controllers.application').set('volumeDisplay', Math.round(volume*100));
+	},
 	actions: {
 		changeDefaultPos: function() {
 			this.set('defaultArrayPos', this.get('arrayPos'));
 		},
 		resetToDefault: function() {
 			this.set('arrayPos', this.get('defaultArrayPos'));
-		}
+		},
 	}
 });
