@@ -73,31 +73,49 @@ export default Ember.Route.extend({
 		];
 	},
 	actions: {
-		play: function() {
-			this.controller.set('isPlaying', true);
-		},
-		stop: function() {
-			this.controller.set('isPlaying', false);
-		},
-		changePitchUp: function() {
-			var newPos = this.controller.get('arrayPos') + 1;
-			this.controller.set('arrayPos', newPos);
-		},
-		changePitchDown: function() {
-			var newPos = this.controller.get('arrayPos') - 1;
-			this.controller.set('arrayPos', newPos);
-		},
-		changeVolumeUp: function() {
-			let volume = this.controller.get('volume');
-			if (volume < 25) {
-				this.controller.set('volume', volume + 1);
-			}
-		},
-		changeVolumeDown: function() {
-			let volume = this.controller.get('volume');
-			if (volume > 0) {
-				this.controller.set('volume', volume - 1);
-			}
-		},
+	changeVolumeUp: function() {
+		let volume = this.controller.get('volume');
+		if (volume < 25) {
+			this.controller.set('volume', volume + 1);
+		}
+	},
+	changeVolumeDown: function() {
+		let volume = this.controller.get('volume');
+		if (volume > 0) {
+			this.controller.set('volume', volume - 1);
+		}
+	},
+	changeCalibrationUp: function() {
+		let calibration = this.controller.get('currentCalibration') + 1;
+		this.controller.set('currentCalibration', calibration);
+		console.log(calibration);
+	},
+	changeCalibrationDown: function() {
+		let calibration = this.controller.get('currentCalibration') - 1;
+		this.controller.set('currentCalibration', calibration);
+		console.log(calibration);
+	}
+		// changeCalibrationUp: function() {
+		// 	let model = this.controller.get('model');
+		// 	console.log(model[0]['frequency']);
+		// 	let currentBase = model[0]['frequency'];
+		// 	currentBase += 0.125;
+		// 	for (let i = 0; i < model.length; i+=1 ) {
+		// 		let element = model.objectAt(i);
+		// 		let calculatedFrequency = (currentBase*(Math.pow(1.059463094359, i))).toFixed(3);
+		// 		Ember.set(element, 'frequency', calculatedFrequency);
+		// 	}
+		// 	console.log(model[0]['frequency']);
+		// },
+		// changeCalibrationDown: function() {
+		// 	let model = this.controller.get('model');
+		// 	let currentBase = model[0]['frequency'];
+		// 	currentBase -= 0.125;
+		// 	for (let i = 0; i < model.length; i+=1 ) {
+		// 		let element = model.objectAt(i);
+		// 		let calculatedFrequency = (currentBase*(Math.pow(1.059463094359, i))).toFixed(3);
+		// 		Ember.set(element, 'frequency', calculatedFrequency);
+		// 	}
+		// }
 	}
 });

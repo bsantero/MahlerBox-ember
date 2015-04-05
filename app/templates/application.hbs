@@ -56,9 +56,9 @@
         </div>
         <div class="calibration">
           <span class="pull-left">Calibration:</span>
-          <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true"></span>
-          <span class="display">440Hz</span>
-          <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true"></span>
+          <span class="fa fa-minus settings-change change-down keyButton" aria-hidden="true" {{action 'changeCalibrationDown'}}></span>
+          <span class="display">{{calibrationDisplay}}</span>
+          <span class="fa fa-plus settings-change change-up keyButton" aria-hidden="true" {{action 'changeCalibrationUp'}}></span>
         </div>
       {{else}}
         <h3>Metro Settings</h3>

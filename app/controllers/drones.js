@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
 	arrayPos: 36,
 	defaultArrayPos: 36,
 	volume: 20,
+	currentCalibration: 0,
 	audioContext: function() {
 		var Context = window.AudioContext || window.webkitAudioContext;
  		return new Context();
@@ -14,6 +15,7 @@ export default Ember.Controller.extend({
 		var array = this.get('model');
 		return array[this.get('arrayPos')];
 	}.property('arrayPos', 'model'),
+	// frequencyDisplay: {	}.property('currentCalibration'),
 	controlDrone: function() {
 		var status = this.get('isPlaying');
 		if (status) {
@@ -22,8 +24,8 @@ export default Ember.Controller.extend({
 			let gainNode = context.createGain();
 			drone.connect(gainNode);
 			gainNode.connect(context.destination);
-			this.setFrequency(drone);
-			this.setVolume(gainNode);
+			this.setFrequencyOnNode(drone);
+			this.setVolumeOnNode(gainNode);
 			this.set('drone', drone);
 			this.set('gainNode', gainNode); // Set controller property to local var
 			drone.start();
@@ -38,19 +40,22 @@ export default Ember.Controller.extend({
 	}.observes('isPlaying'),
 	changeFrequency: function() {
 		let drone = this.get('drone');
-		this.setFrequency(drone);
-	}.observes('currentPitch.frequency'),
+		this.setFrequencyOnNode(drone);
+	}.observes('currentPitch.frequency', 'currentCalibration'),
 	changeVolume: function() {
 		let gainNode = this.get('gainNode');
-		this.setVolume(gainNode);
+		this.setVolumeOnNode(gainNode);
 	}.observes('volume').on('init'),
-	setFrequency: function(drone) {
+	setFrequencyOnNode: function(drone) {
+		let calibration = this.get('currentCalibration');
 		if (drone) {
-			let frequency = this.get('currentPitch.frequency');
-			drone.frequency.value = frequency;
+			// let frequency = this.get('currentPitch.frequency');
+			let distance = this.get('arrayPos') - 36;
+			drone.frequency.value = (440+calibration)*(Math.pow(1.059463094359, distance)); // + calibration;
 		}
+		this.get('controllers.application').set('calibrationDisplay', 440+calibration+"Hz");
 	},
-	setVolume: function(gainNode) {
+	setVolumeOnNode: function(gainNode) {
 		var volume = this.get('volume')/25;
 		if (gainNode) {
 			gainNode.gain.value = volume;
@@ -58,11 +63,25 @@ export default Ember.Controller.extend({
 		this.get('controllers.application').set('volumeDisplay', Math.round(volume*100));
 	},
 	actions: {
+		play: function() {
+			this.set('isPlaying', true);
+		},
+		stop: function() {
+			this.set('isPlaying', false);
+		},
 		changeDefaultPos: function() {
 			this.set('defaultArrayPos', this.get('arrayPos'));
 		},
 		resetToDefault: function() {
 			this.set('arrayPos', this.get('defaultArrayPos'));
 		},
+		changePitchUp: function() {
+			let newPos = this.get('arrayPos') + 1;
+			this.set('arrayPos', newPos);
+		},
+		changePitchDown: function() {
+			let newPos = this.get('arrayPos') - 1;
+			this.set('arrayPos', newPos);
+		}
 	}
 });
