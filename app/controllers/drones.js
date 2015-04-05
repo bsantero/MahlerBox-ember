@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
 	defaultArrayPos: 36,
 	volume: 20,
 	currentCalibration: 0,
+	frequencyDisplay: 440,
 	audioContext: function() {
 		var Context = window.AudioContext || window.webkitAudioContext;
  		return new Context();
@@ -48,10 +49,11 @@ export default Ember.Controller.extend({
 	}.observes('volume').on('init'),
 	setFrequencyOnNode: function(drone) {
 		let calibration = this.get('currentCalibration');
+		let distance = this.get('arrayPos') - 36;
+		let calculatedFrequency = (440+calibration)*(Math.pow(1.059463094359, distance));
+		this.set('frequencyDisplay', Math.round(calculatedFrequency));
 		if (drone) {
-			// let frequency = this.get('currentPitch.frequency');
-			let distance = this.get('arrayPos') - 36;
-			drone.frequency.value = (440+calibration)*(Math.pow(1.059463094359, distance)); // + calibration;
+			drone.frequency.value = calculatedFrequency; // + calibration;
 		}
 		this.get('controllers.application').set('calibrationDisplay', 440+calibration+"Hz");
 	},
